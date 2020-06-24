@@ -5,12 +5,14 @@ import './global.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
+
 import Routes from "./routes"
 
 function App() {
   return (
       <BrowserRouter>
         <Header />
+        
         <div className='content'>
           <Routes />
         </div>
