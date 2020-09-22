@@ -10,7 +10,8 @@ class Login extends Component {
 
     state ={
         email: '',
-        password: ''
+        password: '', 
+        // responseState: ''
     }
 
     handleChange = e =>{
@@ -20,26 +21,31 @@ class Login extends Component {
     handleSubmit = async e=>{
         e.preventDefault();
 
-        let resp = ''
         console.log(this.state.email)
 
-        await api
-            .post('login', {
-                email: this.state.email, 
-                password: this.state.password
-            })
-            .then(response => ( resp =response))
+        api
+            .post('login', 
+            `{"email": "${this.state.email}",
+              "password": "${this.state.password}"
+            }`)
+            // .post('login', this.state)
+            .then(function(response){
+                console.log(response.data)
+                console.log('salvo com sucesso')
+              });
+              
 
-            console.log(resp)
+            // console.log(resposta)
+
     }
 
     render (){
         return(
             <div>
-                
-                
+
+
                 <Card style={{ width: '18rem' }} className="cardLogin">
-                    
+
                     <Card.Body>
                         <Card.Title>Login</Card.Title>
                         <Card.Text>
@@ -47,7 +53,7 @@ class Login extends Component {
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>E-mail</Form.Label>
                                 <Form.Control type="email" placeholder="E-mail" name='email' onChange={this.handleChange}  value={this.state.email}/>
-                                
+
                             </Form.Group>
 
                             <Form.Group controlId="formBasicPassword">
@@ -55,18 +61,18 @@ class Login extends Component {
                                 <Form.Control type="password" placeholder="Senha" name='password' onChange={this.handleChange}  value={this.state.password} />
                             </Form.Group>
 
-                            
+
                             <Button variant="primary" type="submit">
                                 Enviar
                             </Button>
                             </Form>
-                        
+
                         </Card.Text>
-                        
+
                     </Card.Body>
                 </Card>
-                    
-                
+
+
             </div>
         );
     }
@@ -75,5 +81,5 @@ class Login extends Component {
 }
 
 
-export default Login; 
+export default Login;
 
