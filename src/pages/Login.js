@@ -18,20 +18,25 @@ class Login extends Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
-    handleSubmit = async e=>{
+   handleSubmit  = async e=>{
         e.preventDefault();
 
         console.log(this.state.email)
 
         api
-            .post('login', 
-            `{"email": "${this.state.email}",
-              "password": "${this.state.password}"
-            }`)
-            // .post('login', this.state)
+            // .post('login', 
+            // `{"email": "${this.state.email}",
+            //   "password": "${this.state.password}"
+            // }`)
+            .post('login', this.state)
             .then(function(response){
                 console.log(response.data)
-                console.log('salvo com sucesso')
+                // console.log('salvo com sucesso')
+                if(response.data.success){
+
+                    window.location.href = "http://localhost:3000/";
+                
+                }
               });
               
 
