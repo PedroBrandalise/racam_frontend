@@ -6,6 +6,8 @@ import Login from './pages/Login'
 import RegisterCam from './pages/RegisterCam'
 import RegisterUser from './pages/RegisterUser'
 import Cameras from './pages/Cameras'
+import Test from './pages/Test'
+
 
 
 function Routes (){ 
@@ -16,6 +18,8 @@ function Routes (){
             <Route path ='/cameras' component={Cameras} />
             <Route path ='/registercam' component={RegisterCam} />
             <Route path ='/registeruser' component={RegisterUser} />
+            <Route path ='/test' component={Test} />
+
 
         </Switch>
  
