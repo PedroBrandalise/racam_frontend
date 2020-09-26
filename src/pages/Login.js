@@ -32,7 +32,7 @@ class Login extends Component {
                 console.log('salvo com sucesso')
                 if(response.data.success){
 
-
+                    
                     // window.location.href = "http://localhost:3000/";
                 
                 }else{

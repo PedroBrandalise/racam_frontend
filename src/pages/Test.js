@@ -10,7 +10,7 @@ class Test extends Component {
     
     test = e =>{
         console.log('user:')
-        api.get('/auth/profile').then(function(response){
+        api.get('/user/show/:name', { withCredentials: true }).then(function(response){
             console.log(response)
         })
     }
