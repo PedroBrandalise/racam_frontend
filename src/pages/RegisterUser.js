@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './RegisterUser.css';
-import api from '../services/api';
+// import api from '../services/api';
 import Axios from "axios";
 
 
