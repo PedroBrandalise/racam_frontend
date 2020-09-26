@@ -23,23 +23,32 @@ class Login extends Component {
         e.preventDefault();
 
         console.log(this.state)
+        Axios({
+            method: "POST",
+            data: {
+              email: loginUsername,
+              password: loginPassword,
+            },
+            withCredentials: true,
+            url: "http://localhost:8080/login",
+          }).then((res) => console.log(res));
 
 
-        api
-            .post('login', this.state)
-            .then(function(response){
-                console.log(response)
-                console.log('salvo com sucesso')
-                if(response.data.success){
+        // api
+        //     .post('login', this.state)
+        //     .then(function(response){
+        //         console.log(response)
+        //         console.log('salvo com sucesso')
+        //         if(response.data.success){
 
                     
-                    // window.location.href = "http://localhost:3000/";
+        //             // window.location.href = "http://localhost:3000/";
                 
-                }else{
-                    alert("erro");
-                }
+        //         }else{
+        //             alert("erro");
+        //         }
 
-              });
+            //   });
               
 
             // console.log(resposta)

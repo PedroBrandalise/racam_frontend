@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './RegisterUser.css';
 import api from '../services/api';
+import Axios from "axios";
+
 
 class RegisterUser extends Component {
     
@@ -62,22 +64,29 @@ class RegisterUser extends Component {
 
             console.log(user)
             
-            api
-            // .post('login', 
-            // `{"email": "${this.state.email}",
-            //   "password": "${this.state.password}"
-            // }`)
-            .post('user', user)
-            .then(function(response){
-                console.log(response.data)
-                // console.log('salvo com sucesso')
-                 if(response.data.success){ 
-                     window.location.href = "http://localhost:3000/";
+            // api
+            // .post('user', user)
+            // .then(function(response){
+            //     console.log(response.data)
+            //     // console.log('salvo com sucesso')
+            //      if(response.data.success){ 
+            //          window.location.href = "http://localhost:3000/";
 
-                 }else{
-                     alert("Email já utilizado, tente novamente com outro email");
-                 }
-            });
+            //      }else{
+            //          alert("Email já utilizado, tente novamente com outro email");
+            //      }
+            // });
+            Axios({
+                method: "POST",
+                data: {
+                  email: user.email ,
+                  password: user.password,
+                  name: user.name
+                },
+                withCredentials: true,
+                url: "http://localhost:8080/user",
+              }).then((res) => console.log(res));
+            
             
         }
     }
