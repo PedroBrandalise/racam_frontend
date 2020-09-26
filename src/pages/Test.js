@@ -3,7 +3,7 @@ import React, { Component} from 'react'
 
 
 import './Login.css'
-import api from "../services/api"
+// import api from "../services/api"
 import Axios from "axios";
 
 
@@ -22,7 +22,7 @@ class Test extends Component {
             withCredentials: true,
             url: "http://localhost:8080//auth/profile",
           }).then((res) => {
-            setData(res.data);
+            // setData(res.data);
             console.log(res.data);
           });
     }

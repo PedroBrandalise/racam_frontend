@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import './Login.css'
-import api from "../services/api"
+// import api from "../services/api"
 import Axios from "axios";
 
 
@@ -28,8 +28,8 @@ class Login extends Component {
         Axios({
             method: "POST",
             data: {
-              email: loginUsername,
-              password: loginPassword,
+              email: this.state.email,
+              password: this.state.password,
             },
             withCredentials: true,
             url: "http://localhost:8080/login",
