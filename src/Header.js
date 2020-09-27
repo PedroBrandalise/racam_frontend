@@ -27,10 +27,10 @@ class Header extends Component {
         
             api.get('/auth/profile')
             .then(function(response){
-                console.log(response.data)
+                // console.log(response.data)
                 if(response.data.exists!== false){
 
-                    this.setState({name:response.data.name})
+                    // this.setState({name:response.data.name})
                     
                 }
 

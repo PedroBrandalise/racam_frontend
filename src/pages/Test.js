@@ -20,7 +20,7 @@ class Test extends Component {
         Axios({
             method: "GET",
             withCredentials: true,
-            url: "http://localhost:8080//auth/profile",
+            url: "http://localhost:8080/auth/profile",
           }).then((res) => {
             // setData(res.data);
             console.log(res.data);
