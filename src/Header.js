@@ -30,7 +30,7 @@ class Header extends Component {
         }
     }
 
-    getName =  async e =>{
+    async componentDidMount(){
         
             Axios({
                 method: "GET",
@@ -53,7 +53,10 @@ class Header extends Component {
     
 
     render (){
-         this.getName();
+        //  this.getName();
+        // console.log('reqw')
+         
+        //  const nameLog = this.loginOrName()
 
         return(
 
@@ -65,8 +68,7 @@ class Header extends Component {
             
                     <div className= 'headerRight'>
                     
-                        {this.loginOrName()}
-                    
+                    {this.loginOrName()}
                     
 
                     
