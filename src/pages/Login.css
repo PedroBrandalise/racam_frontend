@@ -1,3 +1,10 @@
 .cardLogin{
     margin: auto;
 }
+
+#msgLogin{
+    display: none;
+    text-align: center;
+    margin-top: 5%;
+    color: yellowgreen;
+}

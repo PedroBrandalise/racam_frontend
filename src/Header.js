@@ -2,7 +2,9 @@
 import React, { Component} from 'react'
 import './Header.css'
 // import { Link } from 'react-router-dom';
-import api from './services/api';
+import Axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 class Header extends Component {
 
@@ -15,26 +17,35 @@ class Header extends Component {
         if(this.state.name ===''){
             console.log("login")
             
-            return <div>Login</div>;
+            return (
+            <div>
+                <Link to={'/login'}>
+                    Login 
+                </Link>
+             </div>);
         }else{
             console.log(this.state)
-            return <div> {this.state.name} </div>
+            return <div> Seja bem vindo(a) {this.state.name}! </div>
             
         }
     }
 
     getName =  async e =>{
         
-            api.get('/auth/profile')
-            .then(function(response){
-                // console.log(response.data)
-                if(response.data.exists!== false){
+            Axios({
+                method: "GET",
+                withCredentials: true,
+                url: "http://localhost:8080/auth/profile",
+              }).then((res) => {
+                // setData(res.data);
+                console.log(res.data);
+                if(res.data.loged){
+                    this.setState({name:res.data.user.name})
 
-                    // this.setState({name:response.data.name})
-                    
+                }else{
+                    console.log('au')
                 }
-
-            })
+              });
             
         
             
@@ -54,7 +65,8 @@ class Header extends Component {
             
                     <div className= 'headerRight'>
                     
-                    {this.loginOrName()}
+                        {this.loginOrName()}
+                    
                     
 
                     

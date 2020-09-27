@@ -33,7 +33,18 @@ class Login extends Component {
             },
             withCredentials: true,
             url: "http://localhost:8080/login",
-          }).then((res) => console.log(res));
+          }).then((res) => {
+            console.log(res.data)
+            if (res.data.success === true){
+                console.log("redirecionar")
+                let msgLogin =document.getElementById('msgLogin')
+                msgLogin.style.display = "block";
+                
+                setTimeout(function(){ window.location.href = "http://localhost:3000/"; }, 1000);
+                
+
+            }
+          })
 
 
         // api
@@ -84,6 +95,7 @@ class Login extends Component {
                                 Enviar
                             </Button>
                             </Form>
+                            <div id="msgLogin"> Você efetuou login!</div>
 
                         </Card.Text>
 
