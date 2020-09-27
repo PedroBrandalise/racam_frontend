@@ -1,19 +1,49 @@
 
 import React, { Component} from 'react'
 import Table from 'react-bootstrap/Table'
-import {FcHighBattery} from 'react-icons/fc'
+// import {FcHighBattery} from 'react-icons/fc'
 import {FcLowBattery} from 'react-icons/fc'
 import {MdAddCircle} from 'react-icons/md'
 
 import { MdInsertPhoto } from 'react-icons/md'
 import Button from 'react-bootstrap/Button'
+import Axios from 'axios'
 
 
 class Cameras extends Component {
+    state = {
+        cameras: []
+    }
+    async componentDidMount(){
+    // getCameras = async e=>{
+        Axios({
+            method: "GET",
+            withCredentials: true,
+            url: "http://localhost:8080/cameras",
+          }).then((res) => {
+            
+            // let cameras = res.data.cameras
+            this.setState({cameras: res.data.cameras})
+            // return(cameras)
+            console.log(this.state.cameras);
+
+
+            // if(res.data.loged){
+            //     this.setState({name:res.data.user.name})
+
+            // }else{
+            //     console.log('au')
+            // }
+          });
+
+    }
+
     render (){
+        // let cams = this.getCameras()
         return(
             <div>
                 <h1> Cameras</h1>
+                {this.cams}
                 <Table  bordered hover size="sm">
                 <thead>
                     <tr>
@@ -25,19 +55,16 @@ class Cameras extends Component {
                 </thead>
 
                 <tbody>
+                {this.state.cameras.map(cam =>(
                     <tr>
-                    <td>1256</td>
-                    <td>Floresta</td>
-                    <td>22%   < FcLowBattery /></td>
-                    <td>14  < MdInsertPhoto /></td>
+                        <td>{cam.code}</td>
+                        <td>{cam.name}</td>
+                        <td>{Math.round(Math.random() * (100 - 1) + 1)}  < FcLowBattery /></td>
+                        <td>{Math.round(Math.random() * (100 - 1) + 1)}  < MdInsertPhoto /></td>
                     </tr>
+                   
+                ))}
                     
-                    <tr>
-                    <td>1254</td>
-                    <td>Galpâo</td>
-                    <td>86%  < FcHighBattery /></td>
-                    <td>3 <MdInsertPhoto/> </td>
-                    </tr>
                    
                 </tbody>
                 </Table>
