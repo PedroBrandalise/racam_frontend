@@ -13,19 +13,38 @@ class Header extends Component {
     }
 
     loginOrName =  e =>{
-        console.log('oi')
+        // console.log('oi')
         if(this.state.name ===''){
-            console.log("login")
+            // console.log("login")
             
             return (
-            <div>
-                <Link to={'/login'}>
-                    Login 
+            <div >
+                <Link  id='rightnavBarItems' to={'/registeruser'}>
+                    Registrar 
+                </Link>
+                
+                <Link id='rightnavBarItems' to={'/login'}>
+                    Logar 
                 </Link>
              </div>);
         }else{
-            console.log(this.state)
-            return <div> Seja bem vindo(a) {this.state.name}! </div>
+            // console.log(this.state)
+            return (
+                <div>
+                    <div id='rightnavBarItemsStatic'> Seja bem vindo(a) {this.state.name}! </div>
+                    <Link id='rightnavBarItems' to={'/'}>
+                    Fotos
+                    </Link>
+                    <Link id='rightnavBarItems' to={'/cameras'}>
+                    Câmeras 
+                    </Link>
+                    <Link id='rightnavBarItems' to={'/logout'}>
+                    Logout
+                    </Link>
+
+                </div>
+
+            )
             
         }
     }
@@ -43,7 +62,7 @@ class Header extends Component {
                     this.setState({name:res.data.user.name})
 
                 }else{
-                    console.log('au')
+                    // console.log('au')
                 }
               });
             

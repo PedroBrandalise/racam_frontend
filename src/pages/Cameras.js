@@ -12,9 +12,38 @@ import Axios from 'axios'
 
 class Cameras extends Component {
     state = {
-        cameras: []
+        cameras: [],
+        loged :''
+
     }
+    async isLoged(){
+        Axios({
+            method: "GET",
+            withCredentials: true,
+            url: "http://localhost:8080/auth/profile",
+          }).then((res) => {
+            // setData(res.data);
+            console.log('oioioi')
+            console.log(res.data);
+            if(res.data.loged){
+                console.log('loged')
+                this.setState({loged:true})
+                
+
+            }else{
+                console.log('not loged')
+                
+                this.setState({loged:false})
+        setTimeout(function(){ window.location.href = "http://localhost:3000/login"; }, 1000);
+
+
+            }
+          });
+
+    }
+
     async componentDidMount(){
+        this.isLoged()
     // getCameras = async e=>{
         Axios({
             method: "GET",
