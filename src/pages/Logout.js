@@ -5,6 +5,7 @@ import './Logout.css'
 
 import Axios from "axios";
 import { Link } from 'react-router-dom';
+import {i18n} from '../translate/i18n'
 
 
 
@@ -43,12 +44,18 @@ class Logout extends Component {
                 <Card className="cardLogout">
 
                     <Card.Body>
-                        <Card.Title>Você efetuou logout</Card.Title>
+                        <Card.Title>
+                            {i18n.t('youReLoggedOut')}
+                        </Card.Title>
                         <Card.Text>
-                        Para acessar as informações no sistema RaCam você precisa estar logado.
+                            {i18n.t('loggedOutMsg1')}
+
                         <br/>
                         
-                        <Link to='/login' > Efetuar login</Link>
+                        <Link to='/login' > 
+                        {i18n.t('loggedOutMsg2')}
+
+                        </Link>
 
 
 

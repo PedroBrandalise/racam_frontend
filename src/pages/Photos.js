@@ -4,6 +4,7 @@ import React, { Component} from 'react'
 import Card from 'react-bootstrap/Card'
 import './Photos.css'
 import Axios from 'axios'
+import {i18n} from '../translate/i18n'
 
 class Photos extends Component {
     state = {
@@ -75,7 +76,7 @@ class Photos extends Component {
                         { 
                             //Camera:  <br/> }
                         }
-                        Hora: {Date(photo.hour)}
+                        {i18n.t('hour')}: {Date(photo.hour)}
                         </Card.Text>
                     </Card>
                     <br/>

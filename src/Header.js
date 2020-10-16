@@ -4,8 +4,8 @@ import './Header.css'
 // import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-
-
+import {i18n} from './translate/i18n'
+ 
 class Header extends Component {
 
     state ={
@@ -13,6 +13,8 @@ class Header extends Component {
     }
 
     loginOrName =  e =>{
+
+       
         // console.log('oi')
         if(this.state.name ===''){
             // console.log("login")
@@ -20,27 +22,43 @@ class Header extends Component {
             return (
             <div >
                 <Link  id='rightnavBarItems' to={'/registeruser'}>
-                    Registrar 
+                    {i18n.t('register')}
                 </Link>
                 
                 <Link id='rightnavBarItems' to={'/login'}>
-                    Logar 
+                    {i18n.t('login')} 
                 </Link>
+                <select onChange={this.changeLang} >
+                            <option>{i18n.t('lang')}</option>
+                            <option value='pt-BR' >Português</option>
+                            <option value = 'en-US'>English</option>
+
+                        </select>
+                
              </div>);
         }else{
             // console.log(this.state)
             return (
                 <div>
-                    <div id='rightnavBarItemsStatic'> Seja bem vindo(a) {this.state.name}! </div>
+                    <div id='rightnavBarItemsStatic'> {i18n.t('welcome')} {this.state.name}! </div>
                     <Link id='rightnavBarItems' to={'/'}>
-                    Fotos
+                        {i18n.t('photos')}
                     </Link>
                     <Link id='rightnavBarItems' to={'/cameras'}>
-                    Câmeras 
+                        {i18n.t('cameras')}
+
                     </Link>
                     <Link id='rightnavBarItems' to={'/logout'}>
-                    Logout
+                        {i18n.t('logout')}
+
                     </Link>
+                    <select onChange={this.changeLang} >
+                            <option>{i18n.t('lang')}</option>
+                            <option value='pt-BR' >Português</option>
+                            <option value = 'en-US'>English</option>
+
+                        </select>
+                   
 
                 </div>
 
@@ -69,6 +87,13 @@ class Header extends Component {
         
             
         }
+
+        changeLang = e=>{
+            // alert(e.target.value)
+            localStorage.setItem('i18nextLng', e.target.value )
+            window.location = window.location
+
+        }
     
 
     render (){
@@ -87,14 +112,15 @@ class Header extends Component {
             
                     <div className= 'headerRight'>
                     
-                    {this.loginOrName()}
-                    
+                        {this.loginOrName()}
+                        
+                        
 
                     
                     
                     </div>
                     <link href="https://allfont.net/allfont.css?fonts=agency-fb" rel="stylesheet" type="text/css" />
-            
+                    
             </div>
         );
     }

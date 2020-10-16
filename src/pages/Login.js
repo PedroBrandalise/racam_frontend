@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form'
 import './Login.css'
 // import api from "../services/api"
 import Axios from "axios";
+import {i18n} from '../translate/i18n'
 
 
 
@@ -76,26 +77,31 @@ class Login extends Component {
                 <Card style={{ width: '18rem' }} className="cardLogin">
 
                     <Card.Body>
-                        <Card.Title>Login</Card.Title>
+                        <Card.Title> {i18n.t('login')} </Card.Title>
                         <Card.Text>
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Label>E-mail</Form.Label>
-                                <Form.Control type="email" placeholder="E-mail" name='email' onChange={this.handleChange}  value={this.state.email}/>
+                                <Form.Label>
+                                    {i18n.t('email')}
+                                </Form.Label>
+                                    
+                                <Form.Control type="email" placeholder={i18n.t('email')} name='email' onChange={this.handleChange}  value={this.state.email}/>
 
                             </Form.Group>
 
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Senha</Form.Label>
-                                <Form.Control type="password" placeholder="Senha" name='password' onChange={this.handleChange}  value={this.state.password} />
+                                <Form.Label>
+                                    {i18n.t('password')}
+                                </Form.Label>
+                                <Form.Control type="password" placeholder={i18n.t('password')} name='password' onChange={this.handleChange}  value={this.state.password} />
                             </Form.Group>
 
 
                             <Button variant="primary" type="submit">
-                                Enviar
+                            {i18n.t('login')}
                             </Button>
                             </Form>
-                            <div id="msgLogin"> Você efetuou login!</div>
+                            <div id="msgLogin"> {i18n.t('youReLogged')}</div>
 
                         </Card.Text>
 

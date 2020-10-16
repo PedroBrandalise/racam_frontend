@@ -8,7 +8,7 @@ import {MdAddCircle} from 'react-icons/md'
 import { MdInsertPhoto } from 'react-icons/md'
 import Button from 'react-bootstrap/Button'
 import Axios from 'axios'
-
+import {i18n} from '../translate/i18n'
 
 class Cameras extends Component {
     state = {
@@ -77,9 +77,9 @@ class Cameras extends Component {
                 <thead>
                     <tr>
                     <th>Id</th>
-                    <th>Nome</th>
-                    <th>Bateria</th>
-                    <th>Nº de fotos</th>
+                    <th>{i18n.t('name')}</th>
+                    <th>{i18n.t('batteryLevel')}</th>
+                    <th>{i18n.t('photoCount')}</th>
                     </tr>
                 </thead>
 
@@ -98,7 +98,7 @@ class Cameras extends Component {
                 </tbody>
                 </Table>
 
-                <Button > Adicionar camera  <MdAddCircle/> </Button>
+                <Button > {i18n.t('addCam')} <MdAddCircle/> </Button>
             </div>
         );
     }

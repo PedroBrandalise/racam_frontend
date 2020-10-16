@@ -38,6 +38,12 @@
     color:white;
 
 }
+option{
+    color: black;
+}
+select {
+    display: inline;
+}
 
 #rightnavBarItemsStatic{
     margin-left: 10px;
