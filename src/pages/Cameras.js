@@ -10,6 +10,9 @@ import Button from 'react-bootstrap/Button'
 import Axios from 'axios'
 import {i18n} from '../translate/i18n'
 
+import { Link } from 'react-router-dom';
+
+
 class Cameras extends Component {
     state = {
         cameras: [],
@@ -97,8 +100,9 @@ class Cameras extends Component {
                    
                 </tbody>
                 </Table>
-
-                <Button > {i18n.t('addCam')} <MdAddCircle/> </Button>
+                <Link to ='/registercam'>
+                    <Button > {i18n.t('addCam')} <MdAddCircle/> </Button>
+                </Link>
             </div>
         );
     }
