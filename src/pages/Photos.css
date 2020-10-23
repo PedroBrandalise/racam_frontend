@@ -1,0 +1,16 @@
+.cardPhoto{
+    /* height: 300px; */
+    /* max-height: fit-content; */
+    max-width: fit-content;
+    margin: auto;
+    border-color: yellowgreen;
+
+}
+
+.cardImg{
+/* padding: 10px; */
+}
+ 
+.cardText{
+    padding: 10px;
+}

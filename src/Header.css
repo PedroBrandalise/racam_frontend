@@ -1,0 +1,66 @@
+.headerDiv{
+    /* width: 100%; */
+
+    /* background-color: grey; */
+    background-color: #334d00;
+    overflow: hidden;
+    /* background-color: #f1f1f1; */
+    padding: 20px 10px;
+
+    display: grid;
+    
+    grid-template-columns: auto  auto;
+    
+    font-family: Arial, Helvetica, sans-serif;
+
+
+}
+
+.logo{
+    font-size: 30px;
+    font-weight: bold;
+    width: 50%;
+    font-family: 'Agency FB', arial;
+    color:white
+
+
+}
+
+.headerRight{
+    text-align: right;
+    /* padding-left: 10px; */
+
+}
+
+#rightnavBarItems{
+    margin-left: 10px;
+    padding: 10px;
+    color:white;
+
+}
+option{
+    color: black;
+}
+select {
+    display: inline;
+}
+
+#rightnavBarItemsStatic{
+    margin-left: 10px;
+    padding: 10px;
+    color:white;
+    display: inline;
+
+}
+a{
+    text-decoration: none;
+}
+
+#rightnavBarItems:hover{
+    /* padding-left: 20px;
+    color:white */
+    text-decoration: none;
+    border: white solid 1px;
+    border-radius: 5px;
+
+}

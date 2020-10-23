@@ -1,0 +1,14 @@
+.cardLogout{
+    /* margin: auto; */
+    margin: 5em;
+    padding-left: 5%;
+    border-color: yellowgreen;
+    /* text-align: center; */
+}
+a:hover{
+    color:yellowgreen;
+    text-decoration: none;
+    /* border: yellowgreen solid 1px;
+    border-radius: 5px; */
+}
+
